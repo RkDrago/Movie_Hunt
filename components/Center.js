@@ -5,6 +5,7 @@ import { getGuestWatchlist, saveToGuestWatchlist, isMovieInGuestWatchlist } from
 import { genreContext } from '@/context/context';
 import LikeButton from './LikeButton';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const Center = ({ guestMovies, setGuestMovies, MovieInfoId }) => {
     const router = useRouter()
@@ -86,7 +87,14 @@ const Center = ({ guestMovies, setGuestMovies, MovieInfoId }) => {
             <div className="min-h-[clamp(100vh, 200svh, 250vh)] px-2">
                 <div className={`xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 ${pathname === '/' ? "grid" : "hidden"}`}>
                     {Array.isArray(newMovies) && newMovies.map((movie, idx) => (
-                        <div key={idx} className="h-[clamp(180px, 12vw, 280px)] w-[clamp(140px, 9vw, 220px)] mx-auto rounded-xl my-2 relative overflow-hidden">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            key={idx}
+                            className="h-[clamp(180px, 12vw, 280px)] w-[clamp(140px, 9vw, 220px)] mx-auto rounded-xl my-2 relative overflow-hidden"
+                        >
                             <Image src={movie.image} alt="" className="w-full h-full object-cover" loading="lazy" width="300" height="450" />
                             <div className="h-full w-full hover:bg-[#0000005f] absolute top-0 text-white text-sm group">
                                 <div className="flex gap-1 items-center bg-[#111111b5] text-xs !font-bold rounded px-1.5 py-0.5 absolute left-0">
@@ -117,7 +125,7 @@ const Center = ({ guestMovies, setGuestMovies, MovieInfoId }) => {
                                     </h3>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
                 <div className={`${pathname === '/search-palette' ? "block" : "hidden"}`}>
@@ -127,7 +135,10 @@ const Center = ({ guestMovies, setGuestMovies, MovieInfoId }) => {
                     ? <p className={`text-gray-500 text-sm p-5 ${pathname === '/search-palette' ? "block" : "hidden"}`}>Sorry, We don&apos;t have any match for your search!</p>
                     : (<div className={`xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 pt-2 ${pathname === '/search-palette' ? "grid" : "hidden"}`}>
                         {filteredMovies.map((movie, idx) => (
-                            <div key={idx} className="h-[clamp(180px, 12vw, 280px)] w-[clamp(140px, 9vw, 220px)] mx-auto rounded-xl my-2 relative overflow-hidden">
+                            <div
+                                key={idx}
+                                className="h-[clamp(180px, 12vw, 280px)] w-[clamp(140px, 9vw, 220px)] mx-auto rounded-xl my-2 relative overflow-hidden"
+                            >
                                 <Image src={movie.image} alt="" className="w-full h-full object-cover" loading="lazy" width="300" height="450" />
                                 <div className="h-full w-full hover:bg-[#0000005f] absolute top-0 text-white text-sm group">
                                     <div className="flex gap-1 items-center bg-[#111111b5] text-xs !font-bold rounded px-1.5 py-0.5 absolute left-0">
@@ -165,7 +176,14 @@ const Center = ({ guestMovies, setGuestMovies, MovieInfoId }) => {
 
                 <div className={`xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 ${pathname === '/popular' ? "grid" : "hidden"}`}>
                     {Array.isArray(popularMovies) && popularMovies.map((movie, idx) => (
-                        <div key={idx} className="h-[clamp(180px, 12vw, 280px)] w-[clamp(140px, 9vw, 220px)] mx-auto rounded-xl my-2 relative overflow-hidden">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            key={idx}
+                            className="h-[clamp(180px, 12vw, 280px)] w-[clamp(140px, 9vw, 220px)] mx-auto rounded-xl my-2 relative overflow-hidden"
+                        >
                             <Image src={movie.image} alt="" className="w-full h-full object-cover" loading="lazy" width="300" height="450" />
                             <div className="h-full w-full hover:bg-[#0000005f] absolute top-0 text-white text-sm group">
                                 <div className="flex gap-1 items-center bg-[#111111b5] text-xs !font-bold rounded px-1.5 py-0.5 absolute left-0">
@@ -196,7 +214,7 @@ const Center = ({ guestMovies, setGuestMovies, MovieInfoId }) => {
                                     </h3>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
@@ -209,7 +227,14 @@ const Center = ({ guestMovies, setGuestMovies, MovieInfoId }) => {
                 </div>
                 <div className={`xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 ${pathname === '/random' ? "grid" : "hidden"}`}>
                     {Array.isArray(randomMovies) && randomMovies.map((movie, idx) => (
-                        <div key={idx} className="h-[clamp(180px, 12vw, 280px)] w-[clamp(140px, 9vw, 220px)] mx-auto rounded-xl my-2 relative overflow-hidden">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            key={idx}
+                            className="h-[clamp(180px, 12vw, 280px)] w-[clamp(140px, 9vw, 220px)] mx-auto rounded-xl my-2 relative overflow-hidden"
+                        >
                             <Image src={movie.image} alt="" className="w-full h-full object-cover" loading="lazy" width="300" height="450" />
                             <div className="h-full w-full hover:bg-[#0000005f] absolute top-0 text-white text-sm group">
                                 <div className="flex gap-1 items-center bg-[#111111b5] text-xs !font-bold rounded px-1.5 py-0.5 absolute left-0">
@@ -240,7 +265,7 @@ const Center = ({ guestMovies, setGuestMovies, MovieInfoId }) => {
                                     </h3>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
@@ -256,7 +281,10 @@ const Center = ({ guestMovies, setGuestMovies, MovieInfoId }) => {
                     ? <p className={`text-gray-500 text-sm p-5 ${pathname === '/collection' ? "block" : "hidden"}`}>You don&apos;t have any collections yet..</p>
                     : (<div className={`xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 ${pathname === '/collection' ? "grid" : "hidden"}`}>
                         {guestMovies.map((movie, idx) => (
-                            <div key={idx} className="h-[clamp(180px, 12vw, 280px)] w-[clamp(140px, 9vw, 220px)] mx-auto rounded-xl my-2 relative overflow-hidden">
+                            <div
+                                key={idx}
+                                className="h-[clamp(180px, 12vw, 280px)] w-[clamp(140px, 9vw, 220px)] mx-auto rounded-xl my-2 relative overflow-hidden"
+                            >
                                 <Image src={movie.image} alt="" className="w-full h-full object-cover" loading="lazy" width="300" height="450" />
                                 <div className="h-full w-full hover:bg-[#0000005f] absolute top-0 text-white text-sm group">
                                     <div className="flex gap-1 items-center bg-[#111111b5] text-xs !font-bold rounded px-1.5 py-0.5 absolute left-0">
@@ -297,21 +325,29 @@ const Center = ({ guestMovies, setGuestMovies, MovieInfoId }) => {
                 {infoMovie.length === 0
                     ? <p className={`text-gray-500 text-sm p-5 ${pathname === `/search-palette/${infoMovie._id}` ? "block" : "hidden"}`}>Sorry, We don&apos;t have any data for this!</p>
                     : (<div className={`p-2 mt-12 items-center ${pathname === `/search-palette/${infoMovie._id}` ? "flex flex-col" : "hidden"}`}>
-                        <div className="my-3 p-2 rounded-3xl bg bg-[#58585824] border-8 border-[#5858583d]">
+                        <div
+                            className="my-3 p-2 rounded-3xl bg bg-[#58585824] border-8 border-[#5858583d]"
+                        >
                             <div className="mx-auto rounded-xl relative overflow-hidden">
                                 <Image src={infoMovie.image} alt={infoMovie.title} className="h-auto object-cover" loading="lazy" width="300" height="450" />
                                 <div className="h-full w-full hover:bg-[#0000005f] absolute top-0 text-white text-sm group">
                                 </div>
                             </div>
                         </div>
-                        <div className="my-1 pt-1.5 min-w-[300px] h-[40px] relative">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className="my-1 pt-1.5 min-w-[300px] h-[40px] relative"
+                        >
                             <div className='h-px w-full bg-[#3a3a3ac8] opacity-40 absolute top-0'></div>
                             <div className="flex px-3 h-full w-full justify-between">
                                 <div className="flex gap-4">
                                     <button title={guestMovies.some((m) => m._id === infoMovie._id) ? "Remove from collection" : "Add to collection"} onClick={(e) => { handleAddAndRemove(infoMovie) }} className="border border-[#58585878] bg-[#bebebe20] cursor-pointer flex justify-center items-center h-full px-2.5 rounded-full hover:bg-[#bebebe62]">
-                                        <Image width={20} height={18} src={guestMovies.some((m) => m._id === infoMovie._id) ? "/icons/collection3.png" : "/icons/collection0.png"} alt=''/>
+                                        <Image width={20} height={18} src={guestMovies.some((m) => m._id === infoMovie._id) ? "/icons/collection3.png" : "/icons/collection0.png"} alt='' />
                                     </button>
-                                    <LikeButton movieId={infoMovie._id}/>
+                                    <LikeButton movieId={infoMovie._id} />
                                 </div>
                                 <span className="flex gap-1 items-center text-xs !font-bold">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" color="black" fill="none">
@@ -322,34 +358,66 @@ const Center = ({ guestMovies, setGuestMovies, MovieInfoId }) => {
                                     {new Date(infoMovie.releaseDate).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
                                 </span>
                             </div>
-                        </div>
+                        </motion.div>
                         <div className="my-4 px-10 min-w-[300px] flex flex-col items-center">
-                            <h3 className="py-5 px-2.5 text-center text-[clamp(24px,5vw,50px)] underline underline-offset-4 styled-font">
+                            <motion.h3
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                                className="py-5 px-2.5 text-center text-[clamp(24px,5vw,50px)] underline underline-offset-4 styled-font"
+                            >
                                 {infoMovie.title}
-                            </h3>
-                            <div className="flex items-center gap-1">
+                            </motion.h3>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                                className="flex items-center gap-1"
+                            >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" className="ipc-icon ipc-icon--star sc-d541859f-4 LNYqq" viewBox="0 0 24 24" fill="#111" role="presentation"><path d="M12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72 3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18-1.1 4.72c-.2.86.73 1.54 1.49 1.08l4.15-2.5z"></path></svg>
                                 <h3 className='text-center styled-font text-gray-500'>
                                     IMDb Rating: <span className="text-[#111]">{infoMovie.rating}</span>
                                 </h3>
-                            </div>
-                            <h3 className='text-center styled-font flex gap-1 text-gray-500 text-nowrap'>
+                            </motion.div>
+                            <motion.h3
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                                className='text-center styled-font flex gap-1 text-gray-500 text-nowrap'>
                                 Directed By :
                                 <p className='text-[#111] styled-font text-balance'>{infoMovie.director}</p>
-                            </h3>
-                            <h3 className='text-center styled-font flex gap-1 text-gray-500 text-nowrap'>
+                            </motion.h3>
+                            <motion.h3 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className='text-center styled-font flex gap-1 text-gray-500 text-nowrap'>
                                 Cast :
                                 <p className="text-[#111] styled-font text-wrap">
                                     {infoMovie.cast?.slice(0, 6).join(', ')}
                                 </p>
-                            </h3>
-                            <h3 className='text-center styled-font flex gap-1 text-gray-500 text-nowrap'>
+                            </motion.h3>
+                            <motion.h3 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className='text-center styled-font flex gap-1 text-gray-500 text-nowrap'>
                                 Genres :
                                 <p className='text-[#111] styled-font text-wrap'>
                                     {infoMovie.genre?.slice(0, 4).join(', ')}
                                 </p>
-                            </h3>
-                            <p className='text-center max-w-[600px] text-xl styled-font py-14'>{infoMovie.description}</p>
+                            </motion.h3>
+                            <motion.p 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className='text-center max-w-[600px] text-xl styled-font py-14'>{infoMovie.description}</motion.p>
                         </div>
                     </div>)
                 }

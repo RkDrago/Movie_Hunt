@@ -1,7 +1,7 @@
 {
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/collection/page": "app/collection/page.js",
   "/page": "app/page.js",
-  "/random/page": "app/random/page.js",
   "/popular/page": "app/popular/page.js",
   "/search-palette/[id]/page": "app/search-palette/[id]/page.js",
   "/search-palette/page": "app/search-palette/page.js"
