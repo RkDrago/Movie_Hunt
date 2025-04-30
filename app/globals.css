@@ -35,8 +35,13 @@
     }
   }
 
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.389);
+    border-radius: 10px;
   }
   
   .scrollbar-hide {
