@@ -146,7 +146,7 @@ const Navbar = () => {
                             </svg>
 
                             {/* Option Tab - Only hidden if clicked outside */}
-                            <div className={`option_tab w-full min-h-[40svh] bg-[#ffffffe3] backdrop-blur-2xl shadow-md absolute left-0 top-[145%] z-10 rounded-b-2xl flex flex-col border border-[#9797975a] border-t-0 transition-all duration-200 ${isFocused ? "block" : "hidden"}`}>
+                            <div className={`option_tab w-[110%] sm:w-full min-h-[40svh] bg-[#ffffffe3] backdrop-blur-2xl shadow-md absolute left-0 top-[145%] z-10 rounded-b-2xl flex flex-col border border-[#9797975a] border-t-0 transition-all duration-200 ${isFocused ? "block" : "hidden"}`}>
                                 <div className="h-[45%] w-[98%] mx-auto rounded-2xl p-4 overflow-hidden">
                                     <h3 className="text-sm font-medium tracking-wide mb-1.5">
                                         Genre
