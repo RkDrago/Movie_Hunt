@@ -111,7 +111,7 @@ const Navbar = () => {
 
         <>
             <nav className="sticky top-0 z-10 bg-white">
-                <div className="flex justify-between items-center max-w-[1536px] mx-auto px-4">
+                <div className="flex justify-between items-center max-w-[1536px] mx-auto">
                     {/* Logo */}
                     <div className="flex h-[65px] sm:w-[200px] pl-3">
                         <Link href={"/"} className="flex items-center">

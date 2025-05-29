@@ -10,7 +10,7 @@ const WholePage = ({ MovieInfoId }) => {
 
   return (
     <>
-      <div className="max-w-[1536px] mx-auto px-4">
+      <div className="max-w-[1536px] mx-auto">
         <div className="flex lg:justify-between relative">
           <Basebar />
           {/* Left Sidebar */}
